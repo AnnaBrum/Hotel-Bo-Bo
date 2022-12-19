@@ -30,3 +30,9 @@ background-size: cover;
     width:100%;
     height:auto;
 }
+
+.booking-wrapper {
+    width: 10rem;
+    display:flex;
+    justify-content: center;
+}
