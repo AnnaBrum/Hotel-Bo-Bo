@@ -93,11 +93,13 @@ require __DIR__ . '/dbconnection.php';
           <label for="transfer-code">Transfer-code</label>
           <input type="text" name="transfer-code">
           <!-- arrival-date -->
-          <label for="arrival" class="form-input">Arrival</label>
-          <input type="date" name="arrival" class="form-input">
+          <label for="arrival">Arrival</label>
+          <input type="date" name="arrival" class="form-input"
+          min="2023-01-01" max="2023-01-31">
           <!-- departure-date -->
           <label for="departure">Departure</label>
-          <input type="date" name="departure" class="form-input">
+          <input type="date" name="departure" class="form-input"
+          min="2023-01-01" max="2023-01-31">
           <!-- choose room -->
           <label for="room">Choose Room</label>
           <select name="room" class="form-input">
