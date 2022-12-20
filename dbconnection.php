@@ -6,6 +6,7 @@ $db = connect('/yrgopelago.db');
 $statement = $db->query('SELECT * FROM bookings');
 $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
 if (isset($_POST['name'], $_POST['transfer-code'], $_POST['arrival'], $_POST['departure'], $_POST['room'])) {
 
     $name = htmlspecialchars($_POST['name'],ENT_QUOTES);
@@ -14,7 +15,12 @@ if (isset($_POST['name'], $_POST['transfer-code'], $_POST['arrival'], $_POST['de
     $departure = trim(htmlspecialchars($_POST['departure'],ENT_QUOTES));
     $room = trim(htmlspecialchars($_POST['room'],ENT_QUOTES));
 
-    // if arrivaldate is between x and x 
+    function availability(string $arrival, string $departure, int $room) {
+        $db = connect('/yrgopelago.db');
+
+        $statement = $db->query('SELECT * FROM bookings WHERE ');
+
+    };
 
     $query = 'INSERT INTO bookings (
         name,
@@ -40,6 +46,7 @@ if (isset($_POST['name'], $_POST['transfer-code'], $_POST['arrival'], $_POST['de
     $statement->bindParam(':room_id', $room, PDO::PARAM_STR);
 
     $statement->execute();
+
 
 }
 
