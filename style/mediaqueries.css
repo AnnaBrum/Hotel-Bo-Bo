@@ -1,0 +1,29 @@
+@media screen and (min-width: 990px) {
+  main {
+    font-size: 1rem;
+  }
+
+  .hero {
+    margin: 4rem;
+  }
+  article.room {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem 4rem 4rem 4rem;
+  }
+  .room h2 {
+
+  }
+  .room-wrapper {
+    width: 60%;
+    height: auto;
+  }
+
+  .calendar-wrapper {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+}
