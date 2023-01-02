@@ -3,11 +3,6 @@
 declare(strict_types=1);
 require __DIR__ . '/hotelFunctions.php';
 
-// $name = '';
-// $transferCode = '';
-// $arrival = '';
-// $departure = '';
-// $room = '';
 
 // Check if input-dates already exist in the database
 function availability()
@@ -49,6 +44,15 @@ function availability()
         // Check if transfercode is valid.
         if (isValidUuid($transferCode)) {
             // If the dates are available, that is, not present in the database:
+            $statement = $db->prepare('SELECT fee FROM rooms WHERE id = :room_id');
+            $statement->bindParam(':room_id', $room, PDO::PARAM_INT);
+            $statement->execute();
+
+            $fee = $statement->fetch(PDO::FETCH_ASSOC);
+            $fee = $fee['fee'];
+        
+            $total_fee = (((strtotime($departure) - strtotime($arrival)) / 86400) * $fee);
+
             if (empty($bookings)) {
                 // redirect('/confirmation.php'); 
                 // convert query-answers to json and array_push them into bookings-array? then print_r as receipt to customer?
@@ -57,13 +61,15 @@ function availability()
                 transfer_code,
                 arrival_date,
                 departure_date,
-                room_id
+                room_id,
+                total_fee
                 ) VALUES (
                 :name,
                 :transfer_code,
                 :arrival_date,
                 :departure_date,
-                :room_id )';
+                :room_id,
+                :total_fee)';
 
                 $statement = $db->prepare($booking);
 
@@ -72,19 +78,28 @@ function availability()
                 $statement->bindParam(':arrival_date', $arrival, PDO::PARAM_STR);
                 $statement->bindParam(':departure_date', $departure, PDO::PARAM_STR);
                 $statement->bindParam(':room_id', $room, PDO::PARAM_INT);
+                $statement->bindParam(':total_fee', $total_fee, PDO::PARAM_INT);
+
 
                 $statement->execute();
 
                 // the booking get visible in the calendar
-                $bookings = [
-                    "start" => $arrival,
-                    "end" => $departure,
-                    "name" => $name,
-                    "mask" => true,
-                    "classes" => ["booking", $arrival, $departure],
+                $booking = [
+                    'island' => 'Psycho-Island',
+                    'hotel' => 'Bates Motel',
+                    'name' => $name,
+                    'arrival' => $arrival,
+                    'departure' => $departure,
+                    'total_fee' => $total_fee,
+                    'stars' => '1'
                 ];
 
-
+                $getData = file_get_contents(__DIR__ . '/bookings.json'); 
+                $data = json_decode($getData, true);
+                array_push($data, $booking);
+                $json = json_encode($data);
+                file_put_contents(__DIR__ . '/bookings.json', $json);
+                
                 //     $calendar->addEvents($bookings);
                 echo "Thank you for your reservation!";
 

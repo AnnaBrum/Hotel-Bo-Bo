@@ -4,9 +4,11 @@ require __DIR__ . '/header.php';
 ?>
     <section class="rooms">
       <h2>OUR ROOMS</h2>
+      
+      <div class="room-1">
       <h3>BUDGET</h3>
-      <article class="room budget">
-        <div class="room-wrapper">
+      <article class="room budget">      
+        <div class="room-wrapper">        
           <img class="room-img" src="./images/psycho/economy.jpg" alt="budget motel-room" />
           <p class="room-details">FEE 1 € / night</p>
           <p class="room-description">
@@ -20,7 +22,8 @@ require __DIR__ . '/header.php';
           <?= $calendar->draw(date('2023-01-01')); ?>
         </div>
       </article>
-
+      </div>
+      <div class="room-2">
       <h3>STANDARD</h3>
       <article class="room standard">
         <div class="room-wrapper">
@@ -37,7 +40,8 @@ require __DIR__ . '/header.php';
           <?= $calendar->draw(date('2023-01-01')); ?>
         </div>
       </article>
-
+      </div>
+      <div class="room-3">
       <h3>LUXURY</h3>
       <article class="room luxury">
         <div class="room-wrapper">
@@ -54,6 +58,7 @@ require __DIR__ . '/header.php';
           <?= $calendar->draw(date('2023-01-01')); ?>
         </div>
       </article>
+      </div>
     </section>
 
     <section class="booking-form">
@@ -89,7 +94,9 @@ require __DIR__ . '/header.php';
         <!-- submit -->
         <button type="submit" name="submit">Make a reservation</button>        
       </form>
+      <div class="availability">
       <?= availability();?>
+      </div>
     </section>
   </main>
   <script src="/javascript/yrgopelago.js"></script>
