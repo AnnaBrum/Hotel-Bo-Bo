@@ -5,8 +5,6 @@ require __DIR__ . '/hotelFunctions.php';
 require __DIR__ . '/functions.php';
 
 
-
-
 function checkInput()
 {
     // If all the fields in the form are set:
