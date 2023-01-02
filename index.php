@@ -10,7 +10,7 @@ require __DIR__ . '/header.php';
       <article class="room budget">      
         <div class="room-wrapper">        
           <img class="room-img" src="./images/psycho/economy.jpg" alt="budget motel-room" />
-          <p class="room-details">FEE 1 € / night</p>
+          <p class="room-details">FEE 1💰 / night</p>
           <p class="room-description">
             consectetur adipisicing elit.
             Consequuntur ex iure dolorum maiores nihil ipsam ipsum hic autem
@@ -28,7 +28,7 @@ require __DIR__ . '/header.php';
       <article class="room standard">
         <div class="room-wrapper">
           <img class="room-img" src="./images/psycho/standard.jpeg" alt="standard motel-room" />
-          <p class="room-details">FEE 2 €/ night</p>
+          <p class="room-details">FEE 2💰/ night</p>
           <p class="room-description">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Consequuntur ex iure dolorum maiores nihil ipsam ipsum hic autem
@@ -46,7 +46,7 @@ require __DIR__ . '/header.php';
       <article class="room luxury">
         <div class="room-wrapper">
           <img class="room-img" src="./images/psycho/luxury.jpeg" alt="luxury motel-room" />
-          <p class="room-details">FEE 3 €/ night</p>
+          <p class="room-details">FEE 3💰/ night</p>
           <p class="room-description">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Consequuntur ex iure dolorum maiores nihil ipsam ipsum hic autem
@@ -95,7 +95,7 @@ require __DIR__ . '/header.php';
         <button type="submit" name="submit">Make a reservation</button>        
       </form>
       <div class="availability">
-      <?= availability();?>
+      <?php checkInput();?> 
       </div>
     </section>
   </main>

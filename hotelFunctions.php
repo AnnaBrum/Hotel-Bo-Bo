@@ -28,8 +28,6 @@ function connect(string $dbName): object
     return $db;
 }
 
-
-
 function guidv4(string $data = null): string
 {
     // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
@@ -52,3 +50,5 @@ function isValidUuid(string $uuid): bool
     }
     return true;
 }
+
+
