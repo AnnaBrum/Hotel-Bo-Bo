@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-include_once __DIR__ . '/calendar/calendar.php';
-require __DIR__ . '/dbconnection.php';
+require __DIR__ . '/checkinput.php';
 include_once __DIR__ . '/bookings.php';
+include_once __DIR__ . '/calendar/calendar.php';
 
 ?>
 
