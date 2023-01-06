@@ -3,6 +3,13 @@
     font-size: 1rem;
   }
 
+  ul {
+    max-width: 1030px;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
   .hero {
     margin: 4rem;
   }
@@ -11,9 +18,7 @@
     flex-direction: row-reverse;
     padding: 1rem 4rem 4rem 4rem;
   }
-  .room h2 {
 
-  }
   .room-wrapper {
     width: 60%;
     height: auto;
@@ -24,6 +29,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    padding-right: 4rem;
   }
 
 }

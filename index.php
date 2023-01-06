@@ -1,11 +1,26 @@
 <?php
 declare(strict_types=1);
-require __DIR__ . '/header.php';
+include_once( __DIR__ . '/header.php');
+// require(__DIR__ . '/checkinput.php');
+// require(__DIR__ . '/calendar/calendar.php');
 ?>
+  <!-- <main>
+    <section class="hero">
+      <div class="hero-image">
+        <img src="/images/psycho/hero.jpeg" alt="Bates Motel sign" srcset="" />
+      </div>
+      <article class="welcoming">
+        <h1>Welcome to Bates Motel!</h1>
+        <p>
+          This cozy family run gem of a motel won't let you down with it's warm hospitality and care for details. Your host Norman Bates lives in the family-villa just a stone's throw from the main facilities and will be at your service before you even know you need it!
+        </p>
+      </article>
+    </section>
+
     <section class="rooms">
-      <h2>OUR ROOMS</h2>
+      <h2>OUR ROOMS</h2> -->
       
-      <div class="room-1">
+      <!-- <div class="room-1">
       <h3>BUDGET</h3>
       <article class="room budget">      
         <div class="room-wrapper">        
@@ -19,10 +34,11 @@ require __DIR__ . '/header.php';
           </p>
         </div>
         <div class="calendar-wrapper">
-          <?= $calendar->draw(date('2023-01-01')); ?>
+          <?= $budget->draw(date('2023-01-01')); ?>
         </div>
       </article>
-      </div>
+      </div> -->
+<!-- 
       <div class="room-2">
       <h3>STANDARD</h3>
       <article class="room standard">
@@ -37,10 +53,11 @@ require __DIR__ . '/header.php';
           </p>
         </div>
         <div class="calendar-wrapper">
-          <?= $calendar->draw(date('2023-01-01')); ?>
+          <?= $standard->draw(date('2023-01-01')); ?>
         </div>
-      </article>
-      </div>
+      </article> -->
+
+      <!-- </div>
       <div class="room-3">
       <h3>LUXURY</h3>
       <article class="room luxury">
@@ -55,46 +72,39 @@ require __DIR__ . '/header.php';
           </p>
         </div>
         <div class="calendar-wrapper">
-          <?= $calendar->draw(date('2023-01-01')); ?>
+          <?= $luxury->draw(date('2023-01-01')); ?>
         </div>
       </article>
-      </div>
+      </div> -->
     </section>
 
     <section class="booking-form">
       <h2> RESERVATION </h2>
-      <!-- skicka till annan sida med kvitto -->
       <form action="/index.php" method="post">
-        <!-- transfer-code -->
+        
         <label for="name">Your Name</label>
-        <input type="text" name="name">
-        <!-- transfer-code -->
+        <input type="text" name="name" required> <!-- Field must be filled in, otherwise an error-message will be displayed -->
+        
         <label for="transfer-code">Transfer-code</label>
-        <input type="text" name="transfer-code">
-        <!-- arrival-date -->
+        <input type="text" name="transfer-code" required> <!-- Field must be filled in, otherwise an error-message will be displayed -->
+        
         <label for="arrival">Arrival</label>
         <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31">
-        <!-- departure-date -->
+       
         <label for="departure">Departure</label>
         <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31">
-        <!-- choose room -->
+       
         <label for="room">Choose Room</label>
         <select name="room" class="form-input">
           <option value="1">Budget</option>
           <option value="2">Standard</option>
           <option value="3">Luxury</option>
         </select><br>
-        <!-- features -->
-        <!-- <input type="radio" id="html" name="fav_language" value="HTML">
-          <label for="html">HTML</label><br>
-          <input type="radio" id="css" name="fav_language" value="CSS">
-          <label for="css">CSS</label><br>
-          <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-          <label for="javascript">JavaScript</label> -->
-        <!-- submit -->
+                
         <button type="submit" name="submit">Make a reservation</button>        
       </form>
-      <div class="availability">
+      <!-- RUNS CHECK-UP ON SUBMITTED FORM AND DISPLAYS EITHER ERROR MESSAGE OR BOOKING CONFIRMATION WHEN SUBMITTING -->
+      <div class="check-input">
       <?php checkInput();?> 
       </div>
     </section>
