@@ -10,31 +10,48 @@ function checkInput()
     // If all the fields in the form are set:
     if (isset($_POST['name'], $_POST['transfer-code'], $_POST['arrival'], $_POST['departure'], $_POST['room'])) {
 
-        // Create variables of all input-values and sanitize them
+        // Create variables of all input-values and sanitize them.
         $name = trim(htmlspecialchars($_POST['name'], ENT_QUOTES));
         $transferCode = trim(htmlspecialchars($_POST['transfer-code'], ENT_QUOTES));
         $arrival = trim(htmlspecialchars($_POST['arrival'], ENT_QUOTES));
         $departure = trim(htmlspecialchars($_POST['departure'], ENT_QUOTES));
+        // intval changes the variable room to be of type: integer.
         $room = intval(filter_var($_POST['room'], FILTER_SANITIZE_NUMBER_INT));
 
         if (availability()) {
 
-            // Check if transfercode is valid.
+            // Checks so the name-field contains actual letters and not only blank spaces.
+            if (empty($name)) {
+                echo "Enter your name, please!";
+                return false;
+            }
+
+            // Check if transfercode is written correctly.
             if (isValidUuid($transferCode)) {
 
+                // Runs the function totalFee, which calculates the cost for the visit.
                 $total_fee = totalFee($room, $arrival, $departure);
 
+                // Checks that the Transfer Code corresponds to the fee.
                 $isTransferCodeTrue = checkTransfercode($transferCode, $total_fee);
 
+                
                 if ($isTransferCodeTrue) {
 
-                    insertIntoDb($name, $transferCode, $arrival, $departure, $room, $total_fee);
+                    // If the deposit has been able to transfer correctly,
+                    if (deposit($transferCode)) {
 
+                        // execute booking and add it to database.
+                        insertIntoDb($name, $transferCode, $arrival, $departure, $room, $total_fee);
+
+                    } else {
+                        echo "Something is wrong with your Transfer Code. Either it has already been deposited or you have entered the wrong code.";
+                    }
                 } else {
                     echo "Sorry, you don't have enough credit.";
                 }
             } else {
-                echo "Sorry, your Transfer Code is not valid, try again.";
+                echo "Sorry, your Transfer Code is not written in a valid format, try again.";
             }
         } else {
             echo "Sorry, the dates you have chosen are not available. Please choose other dates for your stay.";

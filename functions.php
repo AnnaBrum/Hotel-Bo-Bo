@@ -18,6 +18,7 @@ function totalFee(int $room, string $arrival, string $departure)
     $fee = $statement->fetch(PDO::FETCH_ASSOC);
     $fee = $fee['fee'];
 
+    //
     $total_fee = (((strtotime($departure) - strtotime($arrival)) / 86400) * $fee);
 
     return $total_fee;
@@ -49,7 +50,38 @@ function checkTransfercode(string $transferCode, int $total_fee)
     } else {
         return true;
     }
+};
+
+// Adds the amount from the Transfer Code to the Hotels account.
+function deposit(string $transferCode)
+{
+    $client = new Client();
+
+    $response = $client->request(
+        'POST',
+        'https://www.yrgopelago.se/centralbank/deposit',
+        [
+            'form_params' => [
+                'user' => "Rune", /* Change when I have an account */
+                'transferCode' => $transferCode
+            ]
+        ]
+    );
+
+    if ($response->hasHeader('Content-Length')) {
+        $transfer_code = json_decode($response->getBody()->getContents());
+    }
+
+    // print_r($transfer_code);
+
+    // If a value is set for 'message' then the code runs
+    if (isset($transfer_code->message)) {
+        return true;
+    } else {
+        return false;
+    }
 }
+deposit("ede1ff30-739b-4acf-9bec-444cf8a1de8c");
 
 // Check if input-dates already exist in the database
 function availability()
@@ -82,7 +114,7 @@ function availability()
     // Fetch all bookings as an associative array.
     $bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    if (empty($bookings)) {
+    if (empty($bookings) && $departure > $arrival) {
         return true;
     }
 }
@@ -131,14 +163,15 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
             'stars' => '1'
         ];
 
-        // Confirmation
-        echo "Thank You for your reservation at our " . $booking['stars'] . "-Star " . $booking['hotel'] . ", $name!" . "<br>" . "Your arrival date is " . "$arrival " . "<br>" . "and your departure date is " . "$departure." . "<br>" . "The total fee for your stay is " . $booking['total_fee'] . "." . "<br>" . "We are looking forward seeing You!";
-
         // All receipts end up in the bookings-file
-        $getData = file_get_contents(__DIR__ . '/bookings.json');
-        $data = json_decode($getData, true);
-        array_push($data, $booking);
-        $json = json_encode($data);
+        $getReceipt = file_get_contents(__DIR__ . '/bookings.json');
+        $receipt = json_decode($getReceipt, true);
+        array_push($receipt, $booking);
+        $json = json_encode($receipt);
         file_put_contents(__DIR__ . '/bookings.json', $json);
+
+                // Confirmation
+        echo "Thank You for your reservation at " . "<br>" . $booking['hotel'] . ", $name!" . "<br>" . "Here is your receipt:" . "<br>";
+        echo "<br>" . json_encode(end($receipt));
     }
 
