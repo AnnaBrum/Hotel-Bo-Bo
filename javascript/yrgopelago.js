@@ -1,5 +1,12 @@
-// const submit = document.querySelector('submit')
+const form = document.getElementByClass('booking');
 
-// submit.addEventListener('click', (e) => {
-//     availability()
-// });
+
+const rooms = [
+    "budget",
+    "standard",
+    "luxury"
+];
+
+rooms.forEach(rooms as room {
+    
+});

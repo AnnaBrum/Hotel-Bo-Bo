@@ -6,7 +6,7 @@ include_once('header.php');
 
 <section class="booking-form">
       <h2> RESERVATION </h2>
-      <form action="/index.php" method="post">
+      <form action="/rooms/budget.php" method="post" class="booking">
         
         <label for="name">Your Name</label>
         <input type="text" name="name" required> <!-- Field must be filled in, otherwise an error-message will be displayed -->
@@ -34,8 +34,5 @@ include_once('header.php');
       <?php checkInput();?> 
       </div>
     </section>
-  </main>
-  <script src="/javascript/yrgopelago.js"></script>
-</body>
-<footer></footer>
-</html>
+  
+

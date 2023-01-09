@@ -15,9 +15,9 @@
 <body>
 <main>
     <section class="hero">
-      <div class="hero-image">
+      <!-- <div class="hero-image">
         <img src="/images/psycho/hero.jpeg" alt="Bates Motel sign" srcset="" />
-      </div>
+      </div> -->
       <article class="welcoming">
         <h1>Welcome to Bates Motel!</h1>
         <p>
@@ -27,11 +27,9 @@
     </section>
 
   <nav>
-    <ul>
-    <li><a href="/index.php">HOME</a></li>
-      <li><a href="/aboutus.php">ABOUT US</a></li>
-      <li><a href="/rooms/budget.php">BUDGET ROOM</a></li>
-      <li><a href="/rooms/standard.php">STANDARD ROOM</a></li>
-      <li><a href="/rooms/luxury.php">LUXURY ROOM</a></li>
-    </ul>
+    <a href="/index.php">HOME</a>
+    <a href="/aboutus.php">ABOUT US</a>
+    <a href="/rooms/budget.php">BUDGET ROOM</a>
+    <a href="/rooms/standard.php">STANDARD ROOM</a>
+    <a href="/rooms/luxury.php">LUXURY ROOM</a>
   </nav>

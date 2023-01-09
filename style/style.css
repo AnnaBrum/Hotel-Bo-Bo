@@ -44,22 +44,24 @@ div h4 {
 p {
   font-size: 1rem;
 }
+
 /* NAV */
 nav {
-  display: flex;
-  justify-content: center;
-}
-
-ul {
   width: 100%;
+  padding: 2rem;
+  background-color: black;
   display: flex;
-  text-align: center;
   flex-direction: column;
-  list-style-type: none;
+  align-items: center;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
 }
+
+nav a {
+  color: white;
+}
+
 /* HERO */
 .hero {
   /* border: 1px solid black; */
@@ -198,9 +200,9 @@ button {
 
 /* DISPLAYS RESPONSE TO BOOKING */
 .check-input {
-  width: 50rem;
-  height: 50rem;
+  width: 20rem;
+  height: 20rem;
   font-size: 1.5rem;
   text-align: center;
-  padding: 20%;
+  padding: 5%;
 }
