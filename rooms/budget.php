@@ -6,7 +6,6 @@ require('../checkinput.php');
 require('../calendar/calendar.php');
 ?>
 <div class="room-1">
-    <!-- <h3>BUDGET</h3> -->
     <article class="room budget">
         <div class="room-wrapper">
             <img class="room-img" src="../images/budget.png" alt="budget motel-room" />
@@ -20,9 +19,6 @@ require('../calendar/calendar.php');
         </div>
         <!-- DISPLAY CALENDAR FOR BUDGET-ROOM -->
         <div class="calendar-wrapper">
-            <div class="vacancies">
-                <h4>VACANCIES</h4>
-            </div>
             <?= $budget->draw(date('2023-01-01')); ?>
         </div>
     </article>

@@ -9,23 +9,19 @@
   <link rel="stylesheet" href="/style/style.css" />
   <link rel="stylesheet" href="/style/mediaqueries.css" />
 
-  <title>Bates motel</title>
+  <title>Hotel Bo-Bo</title>
 </head>
 
 <body>
-<main>
-    <section class="hero">
-      <article class="welcoming">
-        <h1>WELCOME TO HOTEL BO-BO</h1>
-        <p>
-          This cozy family run gem of a motel won't let you down with it's warm hospitality and care for details. Your host Norman Bates lives in the family-villa just a stone's throw from the main facilities and will be at your service before you even know you need it!
-        </p>
-      </article>
-    </section>
+  <main>
 
-  <nav>
-    <a href="/index.php">HOME</a>
-    <a href="/rooms/budget.php">BUDGET ROOM</a>
-    <a href="/rooms/standard.php">STANDARD ROOM</a>
-    <a href="/rooms/luxury.php">LUXURY ROOM</a>
-  </nav>
+    <header>
+      <h1>HOTEL BO-BO</h1>
+    </header>
+
+    <nav>
+      <a href="/index.php">HOME</a>
+      <a href="/rooms/budget.php">BUDGET ROOM</a>
+      <a href="/rooms/standard.php">STANDARD ROOM</a>
+      <a href="/rooms/luxury.php">LUXURY ROOM</a>
+    </nav>

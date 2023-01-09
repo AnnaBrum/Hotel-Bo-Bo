@@ -80,8 +80,8 @@ function deposit(string $transferCode)
     } else {
         return false;
     }
-}
-deposit("ede1ff30-739b-4acf-9bec-444cf8a1de8c");
+};
+
 
 // Check if input-dates already exist in the database
 function availability()
@@ -174,4 +174,3 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
         echo "Thank You for your reservation at " . "<br>" . $booking['hotel'] . ", $name!" . "<br>" . "Here is your receipt:" . "<br>";
         echo "<br>" . json_encode(end($receipt));
     }
-
