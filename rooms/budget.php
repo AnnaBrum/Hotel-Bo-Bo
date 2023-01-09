@@ -9,7 +9,7 @@ require('../calendar/calendar.php');
     <!-- <h3>BUDGET</h3> -->
     <article class="room budget">
         <div class="room-wrapper">
-            <img class="room-img" src="../images/psycho/economy.jpg" alt="budget motel-room" />
+            <img class="room-img" src="../images/budget.png" alt="budget motel-room" />
             <p class="room-details">FEE 1💰 / night</p>
             <p class="room-description">
                 consectetur adipisicing elit.

@@ -15,11 +15,8 @@
 <body>
 <main>
     <section class="hero">
-      <!-- <div class="hero-image">
-        <img src="/images/psycho/hero.jpeg" alt="Bates Motel sign" srcset="" />
-      </div> -->
       <article class="welcoming">
-        <h1>Welcome to Bates Motel!</h1>
+        <h1>WELCOME TO HOTEL BO-BO</h1>
         <p>
           This cozy family run gem of a motel won't let you down with it's warm hospitality and care for details. Your host Norman Bates lives in the family-villa just a stone's throw from the main facilities and will be at your service before you even know you need it!
         </p>
@@ -28,7 +25,6 @@
 
   <nav>
     <a href="/index.php">HOME</a>
-    <a href="/aboutus.php">ABOUT US</a>
     <a href="/rooms/budget.php">BUDGET ROOM</a>
     <a href="/rooms/standard.php">STANDARD ROOM</a>
     <a href="/rooms/luxury.php">LUXURY ROOM</a>

@@ -11,7 +11,7 @@ require('../calendar/calendar.php');
     <!-- <h3>STANDARD</h3> -->
     <article class="room standard">
         <div class="room-wrapper">
-            <img class="room-img" src="../images/psycho/standard.jpeg" alt="standard motel-room" />
+            <img class="room-img" src="../images/standard.png" alt="standard motel-room" />
             <p class="room-details">FEE 2💰/ night</p>
             <p class="room-description">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
