@@ -62,7 +62,7 @@ function deposit(string $transferCode)
         'https://www.yrgopelago.se/centralbank/deposit',
         [
             'form_params' => [
-                'user' => "Rune", /* Change when I have an account */
+                'user' => "Anna", /* Change when I have an account */
                 'transferCode' => $transferCode
             ]
         ]
@@ -154,8 +154,8 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
 
         // Data that end up in bookings-file and displays as receipt
         $booking = [
-            'island' => 'Psycho-Island',
-            'hotel' => 'Bates Motel',
+            'island' => 'BO-BO-ISLAND',
+            'hotel' => 'BO-BO HOTEL',
             'name' => $name,
             'arrival' => $arrival,
             'departure' => $departure,
@@ -171,6 +171,5 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
         file_put_contents(__DIR__ . '/bookings.json', $json);
 
                 // Confirmation
-        echo "Thank You for your reservation at " . "<br>" . $booking['hotel'] . ", $name!" . "<br>" . "Here is your receipt:" . "<br>";
-        echo "<br>" . json_encode(end($receipt));
+        echo "Thank You for your reservation at " . "<br>" . $booking['hotel'] . ", $name!" . "<br>" . "Here is your receipt:" . "<br>" . json_encode(end($receipt));
     }

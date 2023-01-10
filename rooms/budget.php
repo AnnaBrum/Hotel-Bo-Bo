@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-include_once('../header.php');
-require('../checkinput.php');
-require('../calendar/calendar.php');
+include_once(__DIR__ . '/../header.php');
+require(__DIR__ . '/../checkinput.php');
+require(__DIR__ . '/../calendar/calendar.php');
 ?>
 <div class="room-1">
     <article class="room budget">
@@ -23,4 +23,4 @@ require('../calendar/calendar.php');
         </div>
     </article>
 </div>
-<?php require('../form.php') ?>
+<?php require(__DIR__ . '/../form.php') ?>
