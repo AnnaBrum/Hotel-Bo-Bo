@@ -85,7 +85,7 @@ function deposit(string $transferCode):bool
 
 
 // Check if input-dates already exist in the database.
-function availability():bool
+function availability()
 {
 
     $db = connect('/yrgopelago.db');
@@ -121,7 +121,7 @@ function availability():bool
 }
 
 // Inserts input-values from form into database and prints out a confirmation to the hotel guest.
-function insertIntoDb(string $name, string $transferCode, string $arrival, string $departure, int $room, int $total_fee)
+function insertIntoDb(string $name, string $transferCode, string $arrival, string $departure, int $room, int $total_fee):mixed
     {
 
         $db = connect('/yrgopelago.db');
