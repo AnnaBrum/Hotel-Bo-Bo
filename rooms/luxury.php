@@ -11,7 +11,7 @@ require('../calendar/calendar.php');
     <!-- <h3>LUXURY</h3> -->
     <article class="room luxury">
         <div class="room-wrapper">
-            <img class="room-img" src="./images/luxury.png" alt="luxury motel-room" />
+            <img class="room-img" src="../images/luxury.png" alt="luxury motel-room" />
             <p class="room-details">FEE 3💰/ night</p>
             <p class="room-description">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.

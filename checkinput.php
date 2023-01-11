@@ -34,16 +34,21 @@ function checkInput()
 
                 // Checks that the Transfer Code corresponds to the fee.
                 $isTransferCodeTrue = checkTransfercode($transferCode, $total_fee);
-                // Transfers money from guest to hotel.
-                $depositToHotel = deposit($transferCode);
+
                 
-                if ($isTransferCodeTrue && $depositToHotel) {
-                   
+                if ($isTransferCodeTrue) {
+
+                    // If the deposit has been able to transfer correctly,
+                    if (deposit($transferCode)) {
+
                         // execute booking and add it to database.
                         insertIntoDb($name, $transferCode, $arrival, $departure, $room, $total_fee);
 
+                    } else {
+                        echo "Something is wrong with your Transfer Code. Either it has already been deposited or you have entered the wrong code.";
+                    }
                 } else {
-                    echo "Sorry, either you don't have enough credit or something is wrong with your Transfer Code.";
+                    echo "Sorry, you don't have enough credit.";
                 }
             } else {
                 echo "Sorry, your Transfer Code is not written in a valid format, try again.";

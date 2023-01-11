@@ -12,10 +12,10 @@ include_once('header.php');
         <input type="text" name="name" required> <!-- Field must be filled in, otherwise an error-message will be displayed -->
         
         <label for="transfer-code">Transfer-code</label>
-        <input type="text" name="transfer-code" required> 
-
+        <input type="text" name="transfer-code" required> <!-- Field must be filled in, otherwise an error-message will be displayed -->
+        
         <label for="arrival">Arrival</label>
-        <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31"> 
+        <input type="date" name="arrival" class="form-input" min="2023-01-01" max="2023-01-31">
        
         <label for="departure">Departure</label>
         <input type="date" name="departure" class="form-input" min="2023-01-01" max="2023-01-31">

@@ -9,7 +9,6 @@ body {
   flex-direction: column;
   width: 100vw;
   height: auto;
-  margin: 0;
 }
 
 main {
@@ -46,8 +45,6 @@ p {
 }
 
 header {
-  background-color: black;
-  color: white;
   display: flex;
   width: 100%;
   height: 4rem;
@@ -74,7 +71,7 @@ nav a {
 
 
 /* ROOMS */
-.room {
+article.room {
   /* border: 1px solid black; */
   width: 100%;
   height: auto;

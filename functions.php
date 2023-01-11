@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 
 
 // Calculates totalcost for booking
-function totalFee(int $room, string $arrival, string $departure): int
+function totalFee(int $room, string $arrival, string $departure)
 {
     $db = connect('/yrgopelago.db');
     $statement = $db->prepare('SELECT fee FROM rooms WHERE id = :room_id');
@@ -25,7 +25,7 @@ function totalFee(int $room, string $arrival, string $departure): int
 }
 
 // Checks if transferCode is correct relative to fee
-function checkTransfercode(string $transferCode, int $total_fee):bool
+function checkTransfercode(string $transferCode, int $total_fee)
 {
     $client = new Client();
 
@@ -45,8 +45,6 @@ function checkTransfercode(string $transferCode, int $total_fee):bool
         $transfer_code = json_decode($response->getBody()->getContents());
     }
 
-    
-
     if (isset($transfer_code->error)) {
         return false;
     } else {
@@ -55,7 +53,7 @@ function checkTransfercode(string $transferCode, int $total_fee):bool
 };
 
 // Adds the amount from the Transfer Code to the Hotels account.
-function deposit(string $transferCode):bool
+function deposit(string $transferCode)
 {
     $client = new Client();
 
@@ -74,8 +72,9 @@ function deposit(string $transferCode):bool
         $transfer_code = json_decode($response->getBody()->getContents());
     }
 
- 
-    // If a value is set for 'message' then the code runs.
+    // print_r($transfer_code);
+
+    // If a value is set for 'message' then the code runs
     if (isset($transfer_code->message)) {
         return true;
     } else {
@@ -84,8 +83,8 @@ function deposit(string $transferCode):bool
 };
 
 
-// Check if input-dates already exist in the database.
-function availability():bool
+// Check if input-dates already exist in the database
+function availability()
 {
 
     $db = connect('/yrgopelago.db');
@@ -161,9 +160,7 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
             'arrival' => $arrival,
             'departure' => $departure,
             'total_fee' => $total_fee,
-            'stars' => '1',
-            'features' => '',
-            'additional_info' => 'See You Soon!'
+            'stars' => '1'
         ];
 
         // All receipts end up in the bookings-file
