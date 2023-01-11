@@ -1,29 +1,67 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  /* Colors */  
+  --bg-color: rgb(255, 225, 225);
+
+  /* Fonts */
+  --main-font: 'Inter';
+  --main-font-color: rgb(0, 0, 87);
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/Yrgopelago/fonts/Inter-Regular.woff2') format('woff2'),
+      url('/Yrgopelago/fonts/Inter-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter-bold';
+  src: url('Yrgopelago/fonts/Inter-Bold.woff2') format('woff2'),
+      url('Yrgopelago/fonts/Inter-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  background-color: blanchedalmond;
+  background-color: var(--bg-color);
+  color: var(--main-font-color);
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: auto;
+  margin: 0;
 }
 
 main {
-  /* border: 1px solid black; */
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--main-font);
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
 }
 
+.hero {
+  width:100%;
+  height: 100vh;
+}
+
+.hero img {
+  object-fit: cover;
+  margin: 0rem 4rem 0rem 4rem;
+}
+
 h1 {
   font-size: 2rem;
   text-align: center;
+  margin: 10rem 0rem 10rem 0rem;
 }
 
 h2 {
@@ -45,18 +83,20 @@ p {
 }
 
 header {
+  color: rgb(0, 0, 87);
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 4rem;
+  height: 20rem;
   justify-content: center;
   align-items: center;
 }
 
 /* NAV */
 nav {
+  background-color: var(--bg-color);
   width: 100%;
   padding: 2rem;
-  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,25 +106,30 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: rgb(0, 0, 87);
+  text-decoration: none;
 }
 
+nav a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 /* ROOMS */
-article.room {
+.rooms {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.room {
   /* border: 1px solid black; */
   width: 100%;
   height: auto;
   margin: auto;
   align-items: center;
   margin-bottom: 10rem;
-}
-.rooms {
-  /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
 }
 .room-wrapper {
   /* border: 1px solid black; */
@@ -125,9 +170,8 @@ th {
 
 
 .day {
-  border: 0.1rem solid black;
+  border: 0.1rem solid var(--main-font-color);
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 800;
   padding: 0.5rem;
@@ -137,7 +181,7 @@ th {
 /* .booked, */
 .mask-start,
 .mask{
-  background-color: rgb(0, 0, 0);
+  background-color: var(--main-font-color);;
   color: white;
 }
 
@@ -182,17 +226,24 @@ label {
 }
 
 button {
-  background-color: black;
-  color: white;
+  background-color: var(--main-font-color);
+  color: var(--bg-color);
+  letter-spacing: 0.1rem;
   border: none;
   border-radius: 40px;
 }
 
 /* DISPLAYS RESPONSE TO BOOKING */
 .check-input {
-  width: 20rem;
-  height: 20rem;
+  width: 40rem;
+  height: 40rem;
   font-size: 1.5rem;
   text-align: center;
   padding: 5%;
+  margin-bottom: 2rem;
+}
+
+span {
+  width: 20rem;
+  font-size: 1rem;
 }

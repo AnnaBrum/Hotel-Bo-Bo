@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 
 
 // Calculates totalcost for booking
-function totalFee(int $room, string $arrival, string $departure)
+function totalFee(int $room, string $arrival, string $departure): int
 {
     $db = connect('/yrgopelago.db');
     $statement = $db->prepare('SELECT fee FROM rooms WHERE id = :room_id');
@@ -25,7 +25,7 @@ function totalFee(int $room, string $arrival, string $departure)
 }
 
 // Checks if transferCode is correct relative to fee
-function checkTransfercode(string $transferCode, int $total_fee)
+function checkTransfercode(string $transferCode, int $total_fee):bool
 {
     $client = new Client();
 
@@ -45,6 +45,8 @@ function checkTransfercode(string $transferCode, int $total_fee)
         $transfer_code = json_decode($response->getBody()->getContents());
     }
 
+    
+
     if (isset($transfer_code->error)) {
         return false;
     } else {
@@ -53,7 +55,7 @@ function checkTransfercode(string $transferCode, int $total_fee)
 };
 
 // Adds the amount from the Transfer Code to the Hotels account.
-function deposit(string $transferCode)
+function deposit(string $transferCode):bool
 {
     $client = new Client();
 
@@ -62,7 +64,7 @@ function deposit(string $transferCode)
         'https://www.yrgopelago.se/centralbank/deposit',
         [
             'form_params' => [
-                'user' => "Rune", /* Change when I have an account */
+                'user' => "Anna", /* Change when I have an account */
                 'transferCode' => $transferCode
             ]
         ]
@@ -72,9 +74,8 @@ function deposit(string $transferCode)
         $transfer_code = json_decode($response->getBody()->getContents());
     }
 
-    // print_r($transfer_code);
-
-    // If a value is set for 'message' then the code runs
+ 
+    // If a value is set for 'message' then the code runs.
     if (isset($transfer_code->message)) {
         return true;
     } else {
@@ -83,7 +84,7 @@ function deposit(string $transferCode)
 };
 
 
-// Check if input-dates already exist in the database
+// Check if input-dates already exist in the database.
 function availability()
 {
 
@@ -123,7 +124,7 @@ function availability()
 function insertIntoDb(string $name, string $transferCode, string $arrival, string $departure, int $room, int $total_fee)
     {
 
-        $db = connect('/yrgopelago.db');
+        $db = connect('./yrgopelago.db');
 
         $booking = 'INSERT INTO bookings (
         name,
@@ -154,13 +155,15 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
 
         // Data that end up in bookings-file and displays as receipt
         $booking = [
-            'island' => 'Psycho-Island',
-            'hotel' => 'Bates Motel',
+            'island' => 'BO-BO-ISLAND',
+            'hotel' => 'BO-BO HOTEL',
             'name' => $name,
             'arrival' => $arrival,
             'departure' => $departure,
             'total_fee' => $total_fee,
-            'stars' => '1'
+            'stars' => '1',
+            'features' => '',
+            'additional_info' => 'See You Soon!'
         ];
 
         // All receipts end up in the bookings-file
@@ -171,6 +174,5 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
         file_put_contents(__DIR__ . '/bookings.json', $json);
 
                 // Confirmation
-        echo "Thank You for your reservation at " . "<br>" . $booking['hotel'] . ", $name!" . "<br>" . "Here is your receipt:" . "<br>";
-        echo "<br>" . json_encode(end($receipt));
+        echo "<div>" . "Thank You for your reservation at " . $booking['hotel'] . ", $name!" . "Here is your receipt:" . "</div>" . "<span>" . json_encode(end($receipt)) . "</span>";
     }

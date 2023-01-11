@@ -6,8 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="/style/style.css" />
-  <link rel="stylesheet" href="/style/mediaqueries.css" />
+  <base href="/Yrgopelago/" />
+
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/mediaqueries.css" />
 
   <title>Hotel Bo-Bo</title>
 </head>
@@ -18,10 +20,10 @@
     <header>
       <h1>HOTEL BO-BO</h1>
     </header>
-
     <nav>
-      <a href="/index.php">HOME</a>
-      <a href="/rooms/budget.php">BUDGET ROOM</a>
-      <a href="/rooms/standard.php">STANDARD ROOM</a>
-      <a href="/rooms/luxury.php">LUXURY ROOM</a>
+      <a href="index.php">HOME</a>
+      <a href="#BUDGET">BUDGET ROOM</a>
+      <a href="#STANDARD">STANDARD ROOM</a>
+      <a href="#LUXURY">LUXURY ROOM</a>
+      <a href="#BOOKING">BOOKING</a>
     </nav>

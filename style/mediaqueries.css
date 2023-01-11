@@ -1,4 +1,5 @@
 @media screen and (min-width: 550px) {
+
   nav {
     height: 3rem;
     text-align: center;
@@ -12,9 +13,6 @@
     font-size: 1rem;
   }
 
-  .hero {
-    margin: 4rem;
-  }
   article.room {
     display: flex;
     flex-direction: row-reverse;
