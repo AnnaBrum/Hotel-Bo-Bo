@@ -1,4 +1,6 @@
 # Yrgopelago
-Building hotel website with php, sql, javascript, html &amp; css
+Built with php, sql, javascript, html &amp; css
 
-A hotel website
+Christmas assignment of building a hotel-booking site.
+
+
