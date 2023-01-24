@@ -177,7 +177,7 @@ function insertIntoDb(string $name, string $transferCode, string $arrival, strin
         echo "<div>" . "Thank You for your reservation at " . $booking['hotel'] . ", $name!" . "Here is your receipt:" . "</div>" . "<span>" . json_encode(end($receipt)) . "</span>";
     }
 
-    // Inserts input-values from form into database and prints out a confirmation to the hotel guest.
+    // Inserts input-values from form into database and prints out a confirmation to the hotel guest. Is called instead of insertIntoDb() if features are added to the booking.
 function insertIntoDbFeaturesIncl(string $name, string $transferCode, string $arrival, string $departure, int $room, int $total_fee, $features)
 {
     $extraFee = null;

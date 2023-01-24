@@ -27,7 +27,7 @@ declare(strict_types=1);
         <option value="3">Luxury</option>
       </select><br>
 
-      <!-- Show features if there are any. -->
+      <!-- Shows features if there are any. -->
       <?php 
       $featureList = file_get_contents("features.json");
       $featureList = json_decode($featureList, TRUE);

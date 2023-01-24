@@ -10,12 +10,6 @@ function checkInput()
     // If all the fields in the form are set:
     if (isset($_POST['name'], $_POST['transfer-code'], $_POST['arrival'], $_POST['departure'], $_POST['room'])) {
 
-        /* $features = $_POST["features"];
-        foreach ($features as $feature => $price) :
-            echo $feature;
-        endforeach;
-        die(); */
-
         // Create variables of all input-values and sanitize them.
         $name = trim(htmlspecialchars($_POST['name'], ENT_QUOTES));
         $transferCode = trim(htmlspecialchars($_POST['transfer-code'], ENT_QUOTES));
@@ -49,6 +43,8 @@ function checkInput()
                 
                 if ($isTransferCodeTrue && $depositToHotel) {
                     // execute booking and add it to database.
+
+                    // Calls insertIntoDbFeaturesIncl() instead of insertIntoDb if features are included in the booking.
                     if (isset($features)) {
                         insertIntoDbFeaturesIncl($name, $transferCode, $arrival, $departure, $room, $total_fee, $features);
                     } else {
