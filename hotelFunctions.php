@@ -11,6 +11,8 @@ one function to create a guid,
 and one function to control if a guid is valid.
 */
 
+session_start();
+
 function connect(string $dbName): object
 {
     $dbPath = __DIR__ . '/' . $dbName;
@@ -51,4 +53,13 @@ function isValidUuid(string $uuid): bool
     return true;
 }
 
+// Checks the current price of each room so it's up to date on the front page.
+getCurrentPrices();
+function getCurrentPrices()
+{
+    $db = new PDO("sqlite:yrgopelago.db");
+    $statement = $db->query("SELECT id, fee FROM rooms");
+    $prices = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+    $_SESSION["prices"] = $prices;
+}

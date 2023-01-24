@@ -10,6 +10,12 @@ function checkInput()
     // If all the fields in the form are set:
     if (isset($_POST['name'], $_POST['transfer-code'], $_POST['arrival'], $_POST['departure'], $_POST['room'])) {
 
+        /* $features = $_POST["features"];
+        foreach ($features as $feature => $price) :
+            echo $feature;
+        endforeach;
+        die(); */
+
         // Create variables of all input-values and sanitize them.
         $name = trim(htmlspecialchars($_POST['name'], ENT_QUOTES));
         $transferCode = trim(htmlspecialchars($_POST['transfer-code'], ENT_QUOTES));
@@ -18,6 +24,10 @@ function checkInput()
         // intval changes the variable room to be of type: integer.
         $room = intval(filter_var($_POST['room'], FILTER_SANITIZE_NUMBER_INT));
 
+        if (isset($_POST["features"])) :
+            $features = $_POST["features"];
+        endif;
+         
         if (availability()) {
 
             // Checks so the name-field contains actual letters and not only blank spaces.
@@ -38,10 +48,12 @@ function checkInput()
                 $depositToHotel = deposit($transferCode);
                 
                 if ($isTransferCodeTrue && $depositToHotel) {
-                   
-                        // execute booking and add it to database.
-                        insertIntoDb($name, $transferCode, $arrival, $departure, $room, $total_fee);
-
+                    // execute booking and add it to database.
+                    if (isset($features)) {
+                        insertIntoDbFeaturesIncl($name, $transferCode, $arrival, $departure, $room, $total_fee, $features);
+                    } else {
+                    insertIntoDb($name, $transferCode, $arrival, $departure, $room, $total_fee);
+                    }
                 } else {
                     echo "Sorry, either you don't have enough credit or something is wrong with your Transfer Code.";
                 }
