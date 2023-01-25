@@ -13,8 +13,8 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('/Yrgopelago/fonts/Inter-Regular.woff2') format('woff2'),
-      url('/Yrgopelago/fonts/Inter-Regular.woff') format('woff');
+  src: url('../fonts/Inter-Regular.woff2') format('woff2'),
+      url('../fonts/Inter-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -22,8 +22,8 @@
 
 @font-face {
   font-family: 'Inter-bold';
-  src: url('Yrgopelago/fonts/Inter-Bold.woff2') format('woff2'),
-      url('Yrgopelago/fonts/Inter-Bold.woff') format('woff');
+  src: url('../fonts/Inter-Bold.woff2') format('woff2'),
+      url('../fonts/Inter-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -256,6 +256,7 @@ hr {
   margin: 40px auto 0 auto;
 }
 
+/* ADMIN */
 .admin-link {
   font-family: var(--main-font);
   color: black;
@@ -322,8 +323,10 @@ hr {
   font-family: var(--main-font);
 }
 
+/* FEATURES */
 .features {
   display: flex;
+  flex-direction: column;
   justify-content: center
 }
 
@@ -332,5 +335,5 @@ hr {
   display: flex;
   align-items: center;
   margin: 0 20px 50px 0;
-  width: 150px;
+  width: 15rem;
 }

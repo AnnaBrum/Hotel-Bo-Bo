@@ -32,4 +32,7 @@
     padding-right: 4rem;
   }
 
+  .features {
+    flex-direction: row;
+  }
 }
