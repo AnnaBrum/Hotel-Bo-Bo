@@ -3,6 +3,8 @@
 # HOTEL BO-BO
 Built with php, sql, javascript, html &amp; css
 
-Christmas assignment of building a hotel-booking site.
+Choose your room and dates and have a pleasant stay at the BO-BO Hotel!
+
+In addition to top-quality service, you can also order extra features to your vacation, such as breakfast or a guided city tour.
 
 
