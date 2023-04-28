@@ -5,6 +5,6 @@ Built with php, sql, javascript, html &amp; css
 
 Choose your room and dates and have a pleasant stay at the BO-BO Hotel!
 
-In addition to top-quality service, you can also order extra features to your vacation, such as breakfast or a guided city tour.
+In addition to our top-quality service, you can also order extra features, such as breakfast or a guided city tour.
 
 
