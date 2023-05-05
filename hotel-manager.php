@@ -68,8 +68,8 @@ function addNewFeature($feature) {
 <html lang="en">
 
 <head>
-    <link href="/style/style.css" rel="stylesheet">
-    <link href="/style/mediaqueries.css" rel="stylesheet">
+    <link href="./style/style.css" rel="stylesheet">
+    <link href="./style/mediaqueries.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,7 +78,7 @@ function addNewFeature($feature) {
 
 <body>
     <main>
-        <a class="admin-link" href="/index.php">Home page</a>
+        <a class="admin-link" href="./index.php">Home page</a>
 
         <!-- Prints message if there is something to print. -->
         <?php if ($message !== "") : ?>
@@ -86,7 +86,7 @@ function addNewFeature($feature) {
         <?php endif; 
 
         if ($authenticated) : ?>
-            <a class="sign-out" href="/logout.php">Sign out admin</a>
+            <a class="sign-out" href="./logout.php">Sign out admin</a>
         <?php else : ?>
 
             <!-- The login form. Shows up if admin is logged out. -->

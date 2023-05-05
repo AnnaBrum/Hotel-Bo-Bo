@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-include_once(__DIR__ . '/header.php');
-require(__DIR__ . '/checkinput.php');
-require(__DIR__ . '/calendar/calendar.php');
+include_once(__DIR__ . './header.php');
+require(__DIR__ . './checkinput.php');
+require(__DIR__ . './calendar/calendar.php');
 
 // Session variable with information about current room price is retrieved from hotelFunctions.php.
 if (!isset($_SESSION)) :
@@ -84,5 +84,6 @@ endif;
 <?php require(__DIR__ . '/form.php') ?>
 
 </main>
+<a class="admin-link" href="/hotel-manager.php">Hotel manager page</a>
 <script src="/javascript/yrgopelago.js"></script>
 </body>
